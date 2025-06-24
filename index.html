@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYSC Connect | Corps Members Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+<script src="index.js"></script>
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "0UAKxVIkzDgp5_9x2",
+      });
+   })();
+</script>
+    
+    
+    <style>
+        
+        :root {
+            --nysc-green: #1e6420;
+            --nysc-dark-green: #246927;
+            --nysc-white: #FFFFFF;
+            --nysc-black: #212121;
+            --nysc-yellow: #FFEB3B;
+            --nysc-light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+            color: var(--nysc-black);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 51%, #2989d8 70%);
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border-radius: 10%;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+            animation: shine 8s infinite linear;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #fff, #e0f7fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 0.5px;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tagline::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.8), transparent);
+        }
+        
+        /* Button-like effect for the tagline */
+        .tagline {
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .tagline:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .logo {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tagline {
+            font-size: 1rem;
+            font-weight: 300;
+            max-width: 500px;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            background-color: var(--nysc-white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(92, 80, 80, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            color: var(--nysc-dark-green);
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-size: small;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: var(--nysc-dark-green);
+            font-size: 0.9rem;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #4b4343;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background-color: var(--nysc-light);
+        }
+        
+        input:focus {
+            border-color: var(--nysc-green);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+            background-color: var(--nysc-white);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--nysc-green);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            width: 230px;
+            margin-top: 5px;
+        }
+        
+        .btn:hover {
+            background-color: var(--nysc-dark-green);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-whatsapp {
+            background-color: #1b5a32;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        
+        .whatsapp-icon {
+            margin-right: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: 120px;
+            position: relative;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+        }
+        
+         .site-footer {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 2rem 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+         height: fit-content; border-radius: 10px; box-shadow: #2c3e50;
+    }
+    
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .copyright, .credits {
+        margin: 0;
+        font-size: 0.9rem;
+    }
+    
+    .highlight {
+        color: #f39c12;
+        font-weight: 600;
+    }
+    
+    @media (max-width: 768px) {
+        .footer-content {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+        @media (max-width: 768px) {
+            header {
+                height: 220px;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.7rem;
+            }
+            
+            .main-content {
+                padding: 25px 20px;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                height: 250px;
+            }
+            
+            .logo {
+                width: 70px;
+                height: 70px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="image/e_woke_logo.jpg" alt="NYSC Logo" class="logo">
+            <h1>NYSC_CODEFEST WHATSAPP GROUP</h1>
+            <p class="tagline">Register & Join Whatsapp </p>
+        </header>
+        
+        <div class="main-content">
+            <div class="form-container">
+                <h2 class="site-footer">
+    <span class="title-text">NYSC_Codefest Registration</span>
+    <span class="title-decoration">Further Equiries:</span>
+    <span class="title-decoration"><strong>Contact => Stephen Emmanuel </strong></span>
+</h2>
+                
+                
+                <marquee behavior="alternate" direction="left" style="  background-color:rgb(78, 16, 16); color: #f8f9fa; text-underline-position: below;"> <h4>Please Fill the information Below and Submit</h4> </marquee>
+                <form onsubmit="sendMail(); reset(); return false;">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="name" name="fullName" placeholder="Your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="tel" id="phone" name="phoneNumber" placeholder="Your WhatsApp number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email address">email Address </label>
+                        <input type="email" id="email" name="Email Address" placeholder="Enter your Email Address">
+                    </div>
+                   
+                    <div class="action-buttons">
+                     <button style="background-color:  rgb(42, 85, 85); margin: auto;" class="btn"  onclick="sendMail()">Register Now</button>
+                     </div>
+                </form>
+            </div>
+             <div class="action-buttons">
+                       
+                        <a style="margin: auto;" href="https://chat.whatsapp.com/Fi9c3HLMZS0191LXXLq8K0" class="btn" stytarget="_blank">
+                             Join WhatsApp Group
+                        </a>
+                    </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="image/NYSC-Corps-Members-parade.jpeg.webp" alt="NYSC Activities">
+                </div>
+                <div class="gallery-item">
+                    <img src="image/factory-office-meeting-room-team-600nw-1936499983.webp" alt="NYSC Camp">
+                </div>
+                <div class="gallery-item">
+                    <img src="image/MixCollage-12-May-2025-05-54-PM-6437-400x240.webp" alt="NYSC Parade">
+                </div>
+                <div class="gallery-item">
+                    <img src="image/images.jpg" alt="NYSC Community Development">
+                </div>
+            </div>
+        </div>
+        
+       <footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <p class="copyright">&copy; 2025 NYSC Connect. All rights reserved.</p>
+        </div>
+        <div class="footer-section">
+            <p class="credits">Developed by <span class="highlight">Onuh & CODEFEST</span></p>
+        </div>
+    </div>
+</footer>
+    </div>
+    <!-- Include EmailJS SDK -->
+</body>
+</html>
